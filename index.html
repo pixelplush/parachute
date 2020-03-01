@@ -13,7 +13,7 @@
         </script>
         <link rel="stylesheet" href="web/fonts.css" />
         <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/pinkfluffyunicorn@1.0.0/dist/pinkfluffyunicorn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pinkfluffyunicorn@1.0.1/dist/pinkfluffyunicorn.min.js"></script>
         <script src="web/twemoji-parser.js"></script>
         <script src="web/parachute.min.js"></script>
     </head>
@@ -27,6 +27,8 @@
                 target: "game-parachute/target",
                 clouds: [ "game-parachute/cloud1", "game-parachute/cloud2", "game-parachute/cloud3", "game-parachute/cloud4", "game-parachute/cloud5" ],
                 parachutes: [ "game-parachute/chute_green", "game-parachute/chute_pink", "game-parachute/chute_yellow" ],
+                drop_sound: "sfx/woodrop.mp3",
+                parachute_sound: "sfx/parachuteflap.mp3",
                 characters: {
                     "maaya": "maaya",
                     "instafluff": "insta",
@@ -44,6 +46,7 @@
                 overlay: params.get( "overlay" ),
                 clouds: params.get( "clouds" ),
                 hideTilDrop: params.get( "hideTilDrop" ),
+                volume: params.get( "volume" ),
             });
         </script>
     </body>
