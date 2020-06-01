@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Retro Pixel Parachute Drop Game by PixelPlush</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-6EJRXTPH3Z');
+        </script>
+        <link rel="stylesheet" href="web/fonts.css" />
+        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pinkfluffyunicorn@1.0.1/dist/pinkfluffyunicorn.min.js"></script>
+        <script src="web/twemoji-parser.js"></script>
+        <script src="web/parachute.min.js"></script>
+        <style>
+            * {
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            #unicorn-display {
+                filter: grayscale();
+            }
+        </style>
+    </head>
+    <body>
+        <div id="unicorn-display"></div>
+        <script>
+            const params = new URLSearchParams( location.search );
+            setupGame( "Pixel Parachute (Retro)", {
+                path: "https://www.pixelplush.dev",
+                bg: "game-parachute/bcg_retro",
+                target: "game-parachute/target_retro1",
+                clouds: [ "game-parachute/cloud1_retro", "game-parachute/cloud2_retro", "game-parachute/cloud3_retro", "game-parachute/cloud4_retro", "game-parachute/cloud5_retro" ],
+                parachutes: [ "game-parachute/chute_retro" ],
+                drop_sound: "sfx/woodrop.mp3",
+                parachute_sound: "sfx/parachuteflap.mp3",
+                characters: {
+                    "maaya": "maaya",
+                    "instafluff": "insta",
+                    "avellana": "avelana",
+                    "jimmy": "jimmy",
+                    "sammie": "sammie",
+                    "boy": "boy",
+                    "girl": "girl",
+                },
+                playable: [ "boy", "girl" ],
+            }, {
+                channel: params.get( "channel" ),
+                oauth: params.get( "oauth" ),
+                messageFormat: params.get( "messageFormat" ),
+                overlay: params.get( "overlay" ),
+                clouds: params.get( "clouds" ),
+                hideTilDrop: params.get( "hideTilDrop" ),
+                volume: params.get( "volume" ),
+            });
+        </script>
+    </body>
+</html>
