@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pixel Parachute Drop Game by PixelPlush</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-6EJRXTPH3Z');
+        </script>
+        <link rel="stylesheet" href="web/fonts.css" />
+        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pinkfluffyunicorn@1.0.1/dist/pinkfluffyunicorn.min.js"></script>
+        <script src="web/twemoji-parser.js"></script>
+        <script src="web/parachute.min.js"></script>
+        <style>
+            * {
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="unicorn-display"></div>
+        <script>
+            const params = new URLSearchParams( location.search );
+            setupGame( "Pixel Parachute (Pool Party, Red)", {
+                path: "https://www.pixelplush.dev",
+                bg: "game-parachute/bcg",
+                target: "game-parachute/target_pool_red_new",
+                target_offset: -12,
+                target_width: 384,
+                target_particles: 0x0000FF,
+                clouds: [ "game-parachute/cloud1", "game-parachute/cloud2", "game-parachute/cloud3", "game-parachute/cloud4", "game-parachute/cloud5" ],
+                parachutes: [
+                    "game-parachute/chute_black_blue", "game-parachute/chute_black_purple", "game-parachute/chute_black_red",
+                    "game-parachute/chute_black_white", "game-parachute/chute_black_yellow", "game-parachute/chute_blue_green",
+                    "game-parachute/chute_blue_purple", "game-parachute/chute_blue_yellow", "game-parachute/chute_blue",
+                    "game-parachute/chute_green", "game-parachute/chute_pink_blue", "game-parachute/chute_pink_purple",
+                    "game-parachute/chute_pink", "game-parachute/chute_purple_blue", "game-parachute/chute_purple",
+                    "game-parachute/chute_red_purple", "game-parachute/chute_retro", "game-parachute/chute_white_blue",
+                    "game-parachute/chute_white_green", "game-parachute/chute_white_pink", "game-parachute/chute_white_purple",
+                    "game-parachute/chute_white_red", "game-parachute/chute_white_turquoise", "game-parachute/chute_white_yellow",
+                    "game-parachute/chute_yellow"
+                ],
+                target_sound: "sfx/droplet.wav",
+                drop_sound: "sfx/woodrop.mp3",
+                parachute_sound: "sfx/parachuteflap.mp3",
+                characters: {
+                    "maaya": "maaya",
+                    "instafluff": "insta",
+                    "avellana": "avelana",
+                    "jimmy": "jimmy",
+                    "sammie": "sammie",
+                    "boy": "boy",
+                    "girl": "girl",
+                    "bellflower": "bellflower",
+                    "calendula": "calendula",
+                    "poppy": "poppy",
+                },
+                playable: [ "bellflower", "calendula", "poppy" ],
+            }, {
+                channel: params.get( "channel" ),
+                oauth: params.get( "oauth" ),
+                messageFormat: params.get( "messageFormat" ),
+                overlay: params.get( "overlay" ),
+                clouds: params.get( "clouds" ),
+                hideTilDrop: params.get( "hideTilDrop" ),
+                volume: params.get( "volume" ),
+            });
+        </script>
+    </body>
+</html>
