@@ -38,6 +38,14 @@
                 target: "game-parachute/target_retro1",
                 clouds: [ "game-parachute/cloud1_retro", "game-parachute/cloud2_retro", "game-parachute/cloud3_retro", "game-parachute/cloud4_retro", "game-parachute/cloud5_retro" ],
                 parachutes: [ "game-parachute/chute_retro" ],
+                droplets: [
+                    "items/droplets/greydroplet2",
+                    "items/droplets/purpledroplet2",
+                    "items/droplets/greendroplet2",
+                    "items/droplets/bluedroplet2",
+                    "items/droplets/reddroplet2",
+                    "items/droplets/yellowdroplet2",
+                ],
                 drop_sound: "sfx/woodrop.mp3",
                 parachute_sound: "sfx/parachuteflap.mp3",
                 characters: {
@@ -61,6 +69,7 @@
                 clouds: params.get( "clouds" ),
                 hideTilDrop: params.get( "hideTilDrop" ),
                 volume: params.get( "volume" ),
+                droplets: params.get( "droplets" ),
             });
         </script>
     </body>
