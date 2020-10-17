@@ -8,7 +8,6 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-6EJRXTPH3Z');
         </script>
         <link rel="stylesheet" href="web/fonts.css" />
@@ -29,24 +28,19 @@
         <div id="unicorn-display"></div>
         <script>
             const params = new URLSearchParams( location.search );
-            setupGame( "Pixel Parachute (Pool Party, Blue)", {
+            setupGame( "Pixel Parachute (Autumn)", {
                 path: "https://ghcdn.rawgit.org/pixelplush/assets",
-                bg: "game-parachute/bcg",
-                target: [ "game-parachute/target_pool_blue/target_pool_blue1", "game-parachute/target_pool_blue/target_pool_blue2", "game-parachute/target_pool_blue/target_pool_blue3", "game-parachute/target_pool_blue/target_pool_blue4", "game-parachute/target_pool_blue/target_pool_blue5", "game-parachute/target_pool_blue/target_pool_blue6", "game-parachute/target_pool_blue/target_pool_blue7", "game-parachute/target_pool_blue/target_pool_blue8", "game-parachute/target_pool_blue/target_pool_blue9" ],
-                target_offset: -12,
+                bg: "game-parachute/bcg_night",
+                target: [ "game-parachute/cauldron/cauldron1", "game-parachute/cauldron/cauldron2", "game-parachute/cauldron/cauldron3", "game-parachute/cauldron/cauldron4", "game-parachute/cauldron/cauldron5", "game-parachute/cauldron/cauldron6", "game-parachute/cauldron/cauldron7", "game-parachute/cauldron/cauldron8", "game-parachute/cauldron/cauldron9",
+                          "game-parachute/cauldron/cauldron11", "game-parachute/cauldron/cauldron12", "game-parachute/cauldron/cauldron13", "game-parachute/cauldron/cauldron14", "game-parachute/cauldron/cauldron15", "game-parachute/cauldron/cauldron16", "game-parachute/cauldron/cauldron17", "game-parachute/cauldron/cauldron18", "game-parachute/cauldron/cauldron19", "game-parachute/cauldron/cauldron20"],
+                target_offset: -34,
                 target_width: 384,
-                target_particles: [ "#74cbfb", "#50b0e5" ],
-                clouds: [ "game-parachute/cloud1", "game-parachute/cloud2", "game-parachute/cloud3", "game-parachute/cloud4", "game-parachute/cloud5" ],
+                target_y_offset: 14,
+                target_particles: [ "#64c424", "#64c424" ],
+                clouds: [ "game-parachute/cloud1_night", "game-parachute/cloud2_night", "game-parachute/cloud3_night", "game-parachute/cloud4_night", "game-parachute/cloud5_night" ],
                 parachutes: [
-                    "game-parachute/chute_black_blue", "game-parachute/chute_black_purple", "game-parachute/chute_black_red",
-                    "game-parachute/chute_black_white", "game-parachute/chute_black_yellow", "game-parachute/chute_blue_green",
-                    "game-parachute/chute_blue_purple", "game-parachute/chute_blue_yellow", "game-parachute/chute_blue",
-                    "game-parachute/chute_green", "game-parachute/chute_pink_blue", "game-parachute/chute_pink_purple",
-                    "game-parachute/chute_pink", "game-parachute/chute_purple_blue", "game-parachute/chute_purple",
-                    "game-parachute/chute_red_purple", "game-parachute/chute_retro", "game-parachute/chute_white_blue",
-                    "game-parachute/chute_white_green", "game-parachute/chute_white_pink", "game-parachute/chute_white_purple",
-                    "game-parachute/chute_white_red", "game-parachute/chute_white_turquoise", "game-parachute/chute_white_yellow",
-                    "game-parachute/chute_yellow"
+                    "game-parachute/chute_black_purple",
+                    "game-parachute/chute_black", "game-parachute/chute_black_green",
                 ],
                 droplets: [
                     "items/droplets/greydroplet2",
@@ -67,13 +61,11 @@
                     "sammie": "sammie",
                     "boy": "boy",
                     "girl": "girl",
-                    "nova": "mushroom_man_purple",
-                    "lotus": "mushroom_man_pink",
-                    "tori": "mushroom_man_green",
-                    "kiro": "fairy_boy",
-                    "koral": "fairy_girl",
+                    "witch": "witch",
+                    "vampire": "vampire",
+                    "zombie": "zombie",
                 },
-                playable: [ "nova", "lotus", "tori", "kiro", "koral" ],
+                playable: [ "witch", "vampire", "zombie" ],
             }, {
                 channel: params.get( "channel" ),
                 oauth: params.get( "oauth" ),
