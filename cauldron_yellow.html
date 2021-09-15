@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pixel Parachute Drop Game by PixelPlush</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6EJRXTPH3Z');
+        </script>
+        <link rel="stylesheet" href="web/fonts.css" />
+        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
+        <script src="web/twemoji-parser.js"></script>
+        <script src="web/parachute.min.js"></script>
+        <style>
+            * {
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="unicorn-display"></div>
+        <script>
+            const params = new URLSearchParams( location.search );
+            setupGame( "Pixel Parachute (Yellow Cauldron)", {
+        		// requires: "addon_parachute_cauldron",
+                path: "https://cdn.jsdelivr.net/gh/pixelplush",
+                bg: "game-parachute/bcg_night",
+                target: "game-parachute/cauldron/cauldron_base_credit",
+        		target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_yellow/cauldron_yellow${i+1}` ),
+        		target_effect: Array.from( { length: 17 }, ( _, i ) => `game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow${i+1}` ),
+        		target_offset: -34,
+        		target_width: 384,
+        		target_y_offset: 50,//14,
+        		target_walls: 70,
+        		target_collide_land: 20,
+        		target_particles: [ "#64c424", "#64c424" ],
+                clouds: [ "game-parachute/cloud1_night", "game-parachute/cloud2_night", "game-parachute/cloud3_night", "game-parachute/cloud4_night", "game-parachute/cloud5_night" ],
+                parachutes: [
+                    "game-parachute/chute_black", "game-parachute/chute_black_yellow",
+                ],
+                droplets: [
+                    [ "items/candycorn", "items/green_treat", "items/pink_treat" ],
+                    [ "items/candycorn", "items/green_treat", "items/pink_treat", "items/potion_green", "items/potion_pink" ],
+                    [ "items/candycorn", "items/green_treat", "items/pink_treat", "items/potion_green", "items/potion_pink", "items/potion_green", "items/potion_pink" ],
+                    [ "items/potion_green", "items/potion_pink", "items/golden_pumpkin" ],
+                    [ "items/potion_green", "items/potion_pink", "items/golden_pumpkin", "items/golden_pumpkin" ],
+                    "items/golden_pumpkin",
+                ],
+                dropletSizes: [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5,
+                ],
+                drop_sound: "sfx/woodrop.mp3",
+                parachute_sound: "sfx/parachuteflap.mp3",
+                characters: {
+                    "maaya": "maaya",
+                    "instafluff": "insta",
+                    "avellana": "avelana",
+                    "jimmy": "jimmy",
+                    "sammie": "sammie",
+                    "boy": "boy",
+                    "girl": "girl",
+                    "witch": "witch",
+                    "vampire": "vampire",
+                    "zombie": "zombie",
+                },
+                playable: [ "witch", "vampire", "zombie" ],
+            }, {
+                channel: params.get( "channel" ),
+                oauth: params.get( "oauth" ),
+                messageFormat: params.get( "messageFormat" ),
+                overlay: params.get( "overlay" ),
+                clouds: params.get( "clouds" ),
+                hideTilDrop: params.get( "hideTilDrop" ),
+                volume: params.get( "volume" ),
+                droplets: params.get( "droplets" ),
+                command: params.get( "command" ),
+                commandOn: params.get( "commandOn" ),
+                cooldown: params.get( "cooldown" ),
+                cpDrop: params.get( "cpDrop" ),
+                cpDropCost: params.get( "cpDropCost" ),
+                cpDroplets: params.get( "cpDroplets" ),
+                cpDropletsCost: params.get( "cpDropletsCost" ),
+                cpDropletsCD: params.get( "cpDropletsCD" ),
+        		cpQueue: params.get( "cpQueue" ),
+        		cpQueueCost: params.get( "cpQueueCost" ),
+        		cpQueueCD: params.get( "cpQueueCD" ),
+            });
+        </script>
+    </body>
+</html>
