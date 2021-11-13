@@ -1,117 +1,130 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Pixel Parachute Drop Game by PixelPlush</title>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-6EJRXTPH3Z');
-        </script>
-        <link rel="stylesheet" href="web/fonts.css" />
-        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
-        <script src="web/twemoji-parser.js"></script>
-        <script src="web/parachute.min.js"></script>
-        <style>
-            * {
-                background-color: transparent;
-                margin: 0;
-                padding: 0;
-                border: 0;
-            }
-            body {
-              overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="unicorn-display"></div>
-        <script>
-            const params = new URLSearchParams( location.search );
-            setupGame( "Pixel Parachute (Easter)", {
-                path: "https://cdn.jsdelivr.net/gh/pixelplush",
-                bg: "game-parachute/bcg",
-                target: "game-parachute/easter_theme/target_easter1",//[ "game-parachute/easter_theme/target_easter1", "game-parachute/easter_theme/target_easter2", "game-parachute/easter_theme/target_easter3", "game-parachute/easter_theme/target_easter4", "game-parachute/easter_theme/target_easter5", "game-parachute/easter_theme/target_easter6" ],
-                // target_random: true,
-                target_front: "game-parachute/easter_theme/target_easter_front",
-                target_offset: -1,
-                target_width: 384,
-                target_y_offset: 50,
-                target_boosh: [ "game-parachute/easter_theme/leaf1", "game-parachute/easter_theme/leaf2", "game-parachute/easter_theme/leaf3", "game-parachute/easter_theme/leaf4", "game-parachute/easter_theme/leaf5",
-                    "game-parachute/easter_theme/leaf6" ],
-                target_splash: [
-                    "items/egg_brown",
-                    "items/egg_blue",
-                    "items/egg_red"
-                ],
-                clouds: [ "game-parachute/cloud1", "game-parachute/cloud2", "game-parachute/cloud3", "game-parachute/cloud4", "game-parachute/cloud5" ],
-                parachute_offset: 0,
-                parachutes: [
-                    "game-parachute/easter_theme/chute_easter/chute_easter_1",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_2",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_3",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_4",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_5",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_6",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_7",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_8",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_9",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_10",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_11",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_12",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_13",
-                    "game-parachute/easter_theme/chute_easter/chute_easter_14",
-                ],
-                droplets: [
-                    "items/egg_brown",
-                    "items/egg_blue",
-                    "items/egg_red",
-                    "items/egg_trio_1",
-                    "items/egg_trio_2",
-                    "items/egg"
-                ],
-                target_sound: "sfx/dry_leaf.mp3",
-                queue_sound: "sfx/group_queue.mp3",
-                drop_sound: "sfx/woodrop.mp3",
-                parachute_sound: "sfx/parachuteflap.mp3",
-                characters: {
-                    "maaya": "maaya",
-                    "instafluff": "insta",
-                    "avellana": "avelana",
-                    "jimmy": "jimmy",
-                    "sammie": "sammie",
-                    "boy": "boy",
-                    "girl": "girl",
-                },
-                playable: [ "boy", "girl" ],
-            }, {
-                channel: params.get( "channel" ),
-                oauth: params.get( "oauth" ),
-                messageFormat: params.get( "messageFormat" ),
-                overlay: params.get( "overlay" ),
-                clouds: params.get( "clouds" ),
-                hideTilDrop: params.get( "hideTilDrop" ),
-                volume: params.get( "volume" ),
-                droplets: params.get( "droplets" ),
-                command: params.get( "command" ),
-                commandOn: params.get( "commandOn" ),
-                cooldown: params.get( "cooldown" ),
-                cpDrop: params.get( "cpDrop" ),
-                cpDropCost: params.get( "cpDropCost" ),
-                cpDroplets: params.get( "cpDroplets" ),
-                cpDropletsCost: params.get( "cpDropletsCost" ),
-                cpDropletsCD: params.get( "cpDropletsCD" ),
-        		cpQueue: params.get( "cpQueue" ),
-        		cpQueueCost: params.get( "cpQueueCost" ),
-        		cpQueueCD: params.get( "cpQueueCD" ),
-                queueSound: params.get( "queueSound" ),
-                spawnZombies: params.get( "spawnZombies" ),
-                readyTime: params.get( "readyTime" ),
-            });
-        </script>
-    </body>
+<head>
+    <title>Parachute Drop (Easter) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
+    <script src="web/twemoji-parser.js"></script>
+    <script src="web/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Easter)", {
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/bcg",
+	"target": "game-parachute/easter_theme/target_easter1",
+	"target_front": "game-parachute/easter_theme/target_easter_front",
+	"target_offset": -1,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_boosh": [
+		"game-parachute/easter_theme/leaf1",
+		"game-parachute/easter_theme/leaf2",
+		"game-parachute/easter_theme/leaf3",
+		"game-parachute/easter_theme/leaf4",
+		"game-parachute/easter_theme/leaf5",
+		"game-parachute/easter_theme/leaf6"
+	],
+	"target_splash": [
+		"items/egg_brown",
+		"items/egg_blue",
+		"items/egg_red"
+	],
+	"clouds": [
+		"game-parachute/cloud1",
+		"game-parachute/cloud2",
+		"game-parachute/cloud3",
+		"game-parachute/cloud4",
+		"game-parachute/cloud5"
+	],
+	"parachute_offset": 0,
+	"parachutes": [
+		"game-parachute/easter_theme/chute_easter/chute_easter_1",
+		"game-parachute/easter_theme/chute_easter/chute_easter_2",
+		"game-parachute/easter_theme/chute_easter/chute_easter_3",
+		"game-parachute/easter_theme/chute_easter/chute_easter_4",
+		"game-parachute/easter_theme/chute_easter/chute_easter_5",
+		"game-parachute/easter_theme/chute_easter/chute_easter_6",
+		"game-parachute/easter_theme/chute_easter/chute_easter_7",
+		"game-parachute/easter_theme/chute_easter/chute_easter_8",
+		"game-parachute/easter_theme/chute_easter/chute_easter_9",
+		"game-parachute/easter_theme/chute_easter/chute_easter_10",
+		"game-parachute/easter_theme/chute_easter/chute_easter_11",
+		"game-parachute/easter_theme/chute_easter/chute_easter_12",
+		"game-parachute/easter_theme/chute_easter/chute_easter_13",
+		"game-parachute/easter_theme/chute_easter/chute_easter_14"
+	],
+	"droplets": [
+		"items/egg_brown",
+		"items/egg_blue",
+		"items/egg_red",
+		"items/egg_trio_1",
+		"items/egg_trio_2",
+		"items/egg"
+	],
+	"target_sound": "sfx/dry_leaf.mp3",
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"avellana": "avelana",
+		"jimmy": "jimmy",
+		"sammie": "sammie",
+		"boy": "boy",
+		"girl": "girl"
+	},
+	"playable": [
+		"boy",
+		"girl"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        queueSound: params.get( "queueSound" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+    });
+    </script>
+</body>
 </html>

@@ -1,110 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Pixel Parachute Drop Game by PixelPlush</title>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-6EJRXTPH3Z');
-        </script>
-        <link rel="stylesheet" href="web/fonts.css" />
-        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
-        <script src="web/twemoji-parser.js"></script>
-        <script src="web/parachute.min.js"></script>
-        <style>
-            * {
-                background-color: transparent;
-                margin: 0;
-                padding: 0;
-                border: 0;
-            }
-            body {
-              overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="unicorn-display"></div>
-        <script>
-            const params = new URLSearchParams( location.search );
-            setupGame( "Pixel Parachute (Chocolate Cake)", {
-        		requires: "addon_parachute_cakechoco",
-                path: "https://cdn.jsdelivr.net/gh/pixelplush",
-				bg: "game-parachute/cake_theme/cake_chocolate/bcg",
-				target: "game-parachute/cake_theme/cake_chocolate/target_cake_chocolate_back",
-				target_front: "game-parachute/cake_theme/cake_chocolate/target_cake_chocolate_front_credit",
-				target_offset: -8,
-				target_width: 384,
-				target_y_offset: 50,
-				target_walls: 50,
-				target_collide_land: 0,
-				target_particles: [ "#291710" ],
-				clouds: [ "game-parachute/cake_theme/cake_chocolate/cloud1", "game-parachute/cake_theme/cake_chocolate/cloud2", "game-parachute/cake_theme/cake_chocolate/cloud3", "game-parachute/cake_theme/cake_chocolate/cloud4", "game-parachute/cake_theme/cake_chocolate/cloud5" ],
-				parachute_offset: 0,
-				parachutes: [
-					"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_brown",
-					"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_mix",
-					"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_white",
-				],
-                droplets: [
-					"game-parachute/cake_theme/cake_chocolate/droplet1",
-					"game-parachute/cake_theme/cake_chocolate/droplet2",
-					"game-parachute/cake_theme/cake_chocolate/droplet3",
-					"game-parachute/cake_theme/cake_chocolate/droplet4",
-					"game-parachute/cake_theme/cake_chocolate/droplet5",
-					"game-parachute/cake_theme/cake_chocolate/droplet5",
-                ],
-                dropletSizes: [
-					1,
-					0.5,
-					0.5,
-					0.5,
-					0.5,
-					0.5,
-                ],
-                // target_sound: "sfx/dry_leaf.mp3",
-                queue_sound: "sfx/group_queue.mp3",
-                drop_sound: "sfx/woodrop.mp3",
-                parachute_sound: "sfx/parachuteflap.mp3",
-                characters: {
-                    "maaya": "maaya",
-                    "instafluff": "insta",
-                    "avellana": "avelana",
-                    "jimmy": "jimmy",
-                    "sammie": "sammie",
-                    "boy": "boy",
-                    "girl": "girl",
-                },
-                playable: [ "boy", "girl" ],
-            }, {
-                channel: params.get( "channel" ),
-                oauth: params.get( "oauth" ),
-                messageFormat: params.get( "messageFormat" ),
-                overlay: params.get( "overlay" ),
-                clouds: params.get( "clouds" ),
-                hideTilDrop: params.get( "hideTilDrop" ),
-                volume: params.get( "volume" ),
-                droplets: params.get( "droplets" ),
-                command: params.get( "command" ),
-                commandOn: params.get( "commandOn" ),
-                cooldown: params.get( "cooldown" ),
-                cpDrop: params.get( "cpDrop" ),
-                cpDropCost: params.get( "cpDropCost" ),
-                cpDroplets: params.get( "cpDroplets" ),
-                cpDropletsCost: params.get( "cpDropletsCost" ),
-                cpDropletsCD: params.get( "cpDropletsCD" ),
-        		cpQueue: params.get( "cpQueue" ),
-        		cpQueueCost: params.get( "cpQueueCost" ),
-        		cpQueueCD: params.get( "cpQueueCD" ),
-                queueSound: params.get( "queueSound" ),
-                spawnZombies: params.get( "spawnZombies" ),
-                readyTime: params.get( "readyTime" ),
-            });
-        </script>
-    </body>
+<head>
+    <title>Parachute Drop (Chocolate Cake) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
+    <script src="web/twemoji-parser.js"></script>
+    <script src="web/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Chocolate Cake)", {
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/cake_theme/cake_chocolate/bcg",
+	"target": "game-parachute/cake_theme/cake_chocolate/target_cake_chocolate_back",
+	"target_front": "game-parachute/cake_theme/cake_chocolate/target_cake_chocolate_front_credit",
+	"target_offset": -8,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 50,
+	"target_collide_land": 0,
+	"target_particles": [
+		"#291710"
+	],
+	"clouds": [
+		"game-parachute/cake_theme/cake_chocolate/cloud1",
+		"game-parachute/cake_theme/cake_chocolate/cloud2",
+		"game-parachute/cake_theme/cake_chocolate/cloud3",
+		"game-parachute/cake_theme/cake_chocolate/cloud4",
+		"game-parachute/cake_theme/cake_chocolate/cloud5"
+	],
+	"parachute_offset": 0,
+	"parachutes": [
+		"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_brown",
+		"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_mix",
+		"game-parachute/cake_theme/cake_chocolate/chutes_cake_chocolate_white"
+	],
+	"droplets": [
+		"game-parachute/cake_theme/cake_chocolate/droplet1",
+		"game-parachute/cake_theme/cake_chocolate/droplet2",
+		"game-parachute/cake_theme/cake_chocolate/droplet3",
+		"game-parachute/cake_theme/cake_chocolate/droplet4",
+		"game-parachute/cake_theme/cake_chocolate/droplet5",
+		"game-parachute/cake_theme/cake_chocolate/droplet5"
+	],
+	"dropletSizes": [
+		1,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"avellana": "avelana",
+		"jimmy": "jimmy",
+		"sammie": "sammie",
+		"boy": "boy",
+		"girl": "girl"
+	},
+	"playable": [
+		"boy",
+		"girl"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        queueSound: params.get( "queueSound" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+    });
+    </script>
+</body>
 </html>

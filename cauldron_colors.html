@@ -1,149 +1,455 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Pixel Parachute Drop Game by PixelPlush</title>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-6EJRXTPH3Z');
-        </script>
-        <link rel="stylesheet" href="web/fonts.css" />
-        <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
-        <script src="web/twemoji-parser.js"></script>
-        <script src="web/parachute.min.js"></script>
-        <style>
-            * {
-                background-color: transparent;
-                margin: 0;
-                padding: 0;
-                border: 0;
-            }
-            body {
-              overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="unicorn-display"></div>
-        <script>
-            const params = new URLSearchParams( location.search );
-            setupGame( "Pixel Parachute (Color-Changing Cauldron)", {
-        		requires: "addon_parachute_cauldron",
-                path: "https://cdn.jsdelivr.net/gh/pixelplush",
-                bg: "game-parachute/bcg_night",
-                target: "game-parachute/cauldron/cauldron_base_credit",
-        		target_versions: {
-        			yellow: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_yellow/cauldron_yellow${i+1}` ),
-        				target_effect: Array.from( { length: 17 }, ( _, i ) => `game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow${i+1}` ),
-        			},
-        			red: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_red/cauldron_red${i+1}` ),
-        				target_effect: Array.from( { length: 15 }, ( _, i ) => `game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red${i+1}` ),
-        			},
-        			pink: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_pink/cauldron_pink${i+1}` ),
-        				target_effect: Array.from( { length: 13 }, ( _, i ) => `game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink${i+1}` ),
-        			},
-        			orange: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_orange/cauldron_orange${i+1}` ),
-        				target_effect: Array.from( { length: 18 }, ( _, i ) => `game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange${i+1}` ),
-        			},
-        			purple: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_purple/cauldron_purple${i+1}` ),
-        				target_effect: Array.from( { length: 18 }, ( _, i ) => `game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple${i+1}` ),
-        			},
-        			green: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_green/cauldron_green${i+1}` ),
-        				target_effect: Array.from( { length: 14 }, ( _, i ) => `game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green${i+1}` ),
-        			},
-        			blue: {
-        				target: "game-parachute/cauldron/cauldron_base_credit",
-        				target_overlay: Array.from( { length: 20 }, ( _, i ) => `game-parachute/cauldron/cauldron_blue/cauldron_blue${i+1}` ),
-        				target_effect: Array.from( { length: 13 }, ( _, i ) => `game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue${i+1}` ),
-        			}
-        		},
-        		target_offset: -34,
-        		target_width: 384,
-        		target_y_offset: 50,//14,
-        		target_walls: 70,
-        		target_collide_land: 20,
-        		target_particles: [ "#64c424", "#64c424" ],
-                clouds: [ "game-parachute/cloud1_night", "game-parachute/cloud2_night", "game-parachute/cloud3_night", "game-parachute/cloud4_night", "game-parachute/cloud5_night" ],
-                parachutes: [
-                    "game-parachute/chute_black",
-        			"game-parachute/chute_black_blue", "game-parachute/chute_black_green", "game-parachute/chute_black_orange",
-        			"game-parachute/chute_black_pink", "game-parachute/chute_black_purple", "game-parachute/chute_black_red",
-        			"game-parachute/chute_black_yellow",
-                ],
-                droplets: [
-                    [ "items/candycorn", "items/green_treat", "items/pink_treat" ],
-                    [ "items/candycorn", "items/green_treat", "items/pink_treat", "items/potion_green", "items/potion_pink" ],
-                    [ "items/candycorn", "items/green_treat", "items/pink_treat", "items/potion_green", "items/potion_pink", "items/potion_green", "items/potion_pink" ],
-                    [ "items/potion_green", "items/potion_pink", "items/golden_pumpkin" ],
-                    [ "items/potion_green", "items/potion_pink", "items/golden_pumpkin", "items/golden_pumpkin" ],
-                    "items/golden_pumpkin",
-                ],
-                dropletSizes: [
-                    0.5,
-                    0.5,
-                    0.5,
-                    0.5,
-                    0.5,
-                    0.5,
-                ],
-                queue_sound: "sfx/group_queue.mp3",
-                drop_sound: "sfx/woodrop.mp3",
-                parachute_sound: "sfx/parachuteflap.mp3",
-                characters: {
-                    "maaya": "maaya",
-                    "instafluff": "insta",
-                    "avellana": "avelana",
-                    "jimmy": "jimmy",
-                    "sammie": "sammie",
-                    "boy": "boy",
-                    "girl": "girl",
-                    "witch": "witch",
-                    "vampire": "vampire",
-                    "zombie": "zombie",
-                },
-                playable: [ "boy", "girl", "witch", "vampire", "zombie" ],
-            }, {
-                channel: params.get( "channel" ),
-                oauth: params.get( "oauth" ),
-                messageFormat: params.get( "messageFormat" ),
-                overlay: params.get( "overlay" ),
-                clouds: params.get( "clouds" ),
-                hideTilDrop: params.get( "hideTilDrop" ),
-                volume: params.get( "volume" ),
-                droplets: params.get( "droplets" ),
-                command: params.get( "command" ),
-                commandOn: params.get( "commandOn" ),
-                cooldown: params.get( "cooldown" ),
-                variations: params.get( "variations" ),
-                didRandom: params.get( "didRandom" ),
-                cpDrop: params.get( "cpDrop" ),
-                cpDropCost: params.get( "cpDropCost" ),
-                cpDroplets: params.get( "cpDroplets" ),
-                cpDropletsCost: params.get( "cpDropletsCost" ),
-                cpDropletsCD: params.get( "cpDropletsCD" ),
-        		cpQueue: params.get( "cpQueue" ),
-        		cpQueueCost: params.get( "cpQueueCost" ),
-        		cpQueueCD: params.get( "cpQueueCD" ),
-                queueSound: params.get( "queueSound" ),
-                spawnZombies: params.get( "spawnZombies" ),
-                readyTime: params.get( "readyTime" ),
-            });
-        </script>
-    </body>
+<head>
+    <title>Parachute Drop (Color-Changing Cauldron) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="web/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
+    <script src="web/twemoji-parser.js"></script>
+    <script src="web/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Color-Changing Cauldron)", {
+	"requires": "addon_parachute_cauldron",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/bcg_night",
+	"target": "game-parachute/cauldron/cauldron_base_credit",
+	"target_versions": {
+		"yellow": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow1",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow2",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow3",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow4",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow5",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow6",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow7",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow8",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow9",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow10",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow11",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow12",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow13",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow14",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow15",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow16",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow17",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow18",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow19",
+				"game-parachute/cauldron/cauldron_yellow/cauldron_yellow20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow1",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow2",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow3",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow4",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow5",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow6",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow7",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow8",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow9",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow10",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow11",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow12",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow13",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow14",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow15",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow16",
+				"game-parachute/cauldron/cauldron_yellow/land_effect_yellow/land_effect_yellow17"
+			]
+		},
+		"red": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_red/cauldron_red1",
+				"game-parachute/cauldron/cauldron_red/cauldron_red2",
+				"game-parachute/cauldron/cauldron_red/cauldron_red3",
+				"game-parachute/cauldron/cauldron_red/cauldron_red4",
+				"game-parachute/cauldron/cauldron_red/cauldron_red5",
+				"game-parachute/cauldron/cauldron_red/cauldron_red6",
+				"game-parachute/cauldron/cauldron_red/cauldron_red7",
+				"game-parachute/cauldron/cauldron_red/cauldron_red8",
+				"game-parachute/cauldron/cauldron_red/cauldron_red9",
+				"game-parachute/cauldron/cauldron_red/cauldron_red10",
+				"game-parachute/cauldron/cauldron_red/cauldron_red11",
+				"game-parachute/cauldron/cauldron_red/cauldron_red12",
+				"game-parachute/cauldron/cauldron_red/cauldron_red13",
+				"game-parachute/cauldron/cauldron_red/cauldron_red14",
+				"game-parachute/cauldron/cauldron_red/cauldron_red15",
+				"game-parachute/cauldron/cauldron_red/cauldron_red16",
+				"game-parachute/cauldron/cauldron_red/cauldron_red17",
+				"game-parachute/cauldron/cauldron_red/cauldron_red18",
+				"game-parachute/cauldron/cauldron_red/cauldron_red19",
+				"game-parachute/cauldron/cauldron_red/cauldron_red20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red1",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red2",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red3",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red4",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red5",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red6",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red7",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red8",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red9",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red10",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red11",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red12",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red13",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red14",
+				"game-parachute/cauldron/cauldron_red/land_effect_red/land_effect_red15"
+			]
+		},
+		"pink": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink1",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink2",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink3",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink4",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink5",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink6",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink7",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink8",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink9",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink10",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink11",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink12",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink13",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink14",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink15",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink16",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink17",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink18",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink19",
+				"game-parachute/cauldron/cauldron_pink/cauldron_pink20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink1",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink2",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink3",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink4",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink5",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink6",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink7",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink8",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink9",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink10",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink11",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink12",
+				"game-parachute/cauldron/cauldron_pink/land_effect_pink/land_effect_pink13"
+			]
+		},
+		"orange": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange1",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange2",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange3",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange4",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange5",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange6",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange7",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange8",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange9",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange10",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange11",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange12",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange13",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange14",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange15",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange16",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange17",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange18",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange19",
+				"game-parachute/cauldron/cauldron_orange/cauldron_orange20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange1",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange2",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange3",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange4",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange5",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange6",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange7",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange8",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange9",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange10",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange11",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange12",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange13",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange14",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange15",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange16",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange17",
+				"game-parachute/cauldron/cauldron_orange/land_effect_orange/land_effect_orange18"
+			]
+		},
+		"purple": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple1",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple2",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple3",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple4",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple5",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple6",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple7",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple8",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple9",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple10",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple11",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple12",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple13",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple14",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple15",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple16",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple17",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple18",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple19",
+				"game-parachute/cauldron/cauldron_purple/cauldron_purple20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple1",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple2",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple3",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple4",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple5",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple6",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple7",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple8",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple9",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple10",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple11",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple12",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple13",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple14",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple15",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple16",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple17",
+				"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple18"
+			]
+		},
+		"green": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_green/cauldron_green1",
+				"game-parachute/cauldron/cauldron_green/cauldron_green2",
+				"game-parachute/cauldron/cauldron_green/cauldron_green3",
+				"game-parachute/cauldron/cauldron_green/cauldron_green4",
+				"game-parachute/cauldron/cauldron_green/cauldron_green5",
+				"game-parachute/cauldron/cauldron_green/cauldron_green6",
+				"game-parachute/cauldron/cauldron_green/cauldron_green7",
+				"game-parachute/cauldron/cauldron_green/cauldron_green8",
+				"game-parachute/cauldron/cauldron_green/cauldron_green9",
+				"game-parachute/cauldron/cauldron_green/cauldron_green10",
+				"game-parachute/cauldron/cauldron_green/cauldron_green11",
+				"game-parachute/cauldron/cauldron_green/cauldron_green12",
+				"game-parachute/cauldron/cauldron_green/cauldron_green13",
+				"game-parachute/cauldron/cauldron_green/cauldron_green14",
+				"game-parachute/cauldron/cauldron_green/cauldron_green15",
+				"game-parachute/cauldron/cauldron_green/cauldron_green16",
+				"game-parachute/cauldron/cauldron_green/cauldron_green17",
+				"game-parachute/cauldron/cauldron_green/cauldron_green18",
+				"game-parachute/cauldron/cauldron_green/cauldron_green19",
+				"game-parachute/cauldron/cauldron_green/cauldron_green20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green1",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green2",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green3",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green4",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green5",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green6",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green7",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green8",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green9",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green10",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green11",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green12",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green13",
+				"game-parachute/cauldron/cauldron_green/land_effect_green/land_effect_green14"
+			]
+		},
+		"blue": {
+			"target": "game-parachute/cauldron/cauldron_base_credit",
+			"target_overlay": [
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue1",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue2",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue3",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue4",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue5",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue6",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue7",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue8",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue9",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue10",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue11",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue12",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue13",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue14",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue15",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue16",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue17",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue18",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue19",
+				"game-parachute/cauldron/cauldron_blue/cauldron_blue20"
+			],
+			"target_effect": [
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue1",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue2",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue3",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue4",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue5",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue6",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue7",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue8",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue9",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue10",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue11",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue12",
+				"game-parachute/cauldron/cauldron_blue/land_effect_blue/land_effect_blue13"
+			]
+		}
+	},
+	"target_offset": -34,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 70,
+	"target_collide_land": 20,
+	"target_particles": [
+		"#64c424",
+		"#64c424"
+	],
+	"clouds": [
+		"game-parachute/cloud1_night",
+		"game-parachute/cloud2_night",
+		"game-parachute/cloud3_night",
+		"game-parachute/cloud4_night",
+		"game-parachute/cloud5_night"
+	],
+	"parachutes": [
+		"game-parachute/chute_black",
+		"game-parachute/chute_black_blue",
+		"game-parachute/chute_black_green",
+		"game-parachute/chute_black_orange",
+		"game-parachute/chute_black_pink",
+		"game-parachute/chute_black_purple",
+		"game-parachute/chute_black_red",
+		"game-parachute/chute_black_yellow"
+	],
+	"droplets": [
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat"
+		],
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat",
+			"items/potion_green",
+			"items/potion_pink"
+		],
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat",
+			"items/potion_green",
+			"items/potion_pink",
+			"items/potion_green",
+			"items/potion_pink"
+		],
+		[
+			"items/potion_green",
+			"items/potion_pink",
+			"items/golden_pumpkin"
+		],
+		[
+			"items/potion_green",
+			"items/potion_pink",
+			"items/golden_pumpkin",
+			"items/golden_pumpkin"
+		],
+		"items/golden_pumpkin"
+	],
+	"dropletSizes": [
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"avellana": "avelana",
+		"jimmy": "jimmy",
+		"sammie": "sammie",
+		"boy": "boy",
+		"girl": "girl",
+		"witch": "witch",
+		"vampire": "vampire",
+		"zombie": "zombie"
+	},
+	"playable": [
+		"boy",
+		"girl",
+		"witch",
+		"vampire",
+		"zombie"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        queueSound: params.get( "queueSound" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+    });
+    </script>
+</body>
 </html>
