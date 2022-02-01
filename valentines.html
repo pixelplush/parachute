@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parachute Drop (Valentines (Brown/Red)) Game by PixelPlush</title>
+    <title>Parachute Drop (Valentines Drop) Game by PixelPlush</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
     <script>
@@ -30,19 +30,18 @@
     <div id="unicorn-display"></div>
     <script>
     const params = new URLSearchParams( location.search );
-    setupGame( "Parachute Drop (Valentines (Brown/Red))", {
-	"requires": "addon_parachute_valentines",
+    setupGame( "Parachute Drop (Valentines Drop)", {
 	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
 	"bg": "game-parachute/valentines/bcg",
-	"target": "game-parachute/valentines/valentines_target_brown_red_credit",
-	"target_offset": -22,
+	"target": "game-parachute/valentines/target_cake_chocolate_back",
+	"target_front": "game-parachute/valentines/target_cake_chocolate_front_credit",
+	"target_offset": -8,
 	"target_width": 384,
 	"target_y_offset": 50,
 	"target_walls": 50,
 	"target_collide_land": 0,
-	"target_floaty": [
-		"game-parachute/valentines/heart_red1",
-		"game-parachute/valentines/heart_red2"
+	"target_particles": [
+		"#291710"
 	],
 	"clouds": [
 		"game-parachute/valentines/cloud1",
@@ -53,19 +52,20 @@
 	],
 	"parachute_offset": 0,
 	"parachutes": [
-		"game-parachute/valentines/balloon_heart_brown",
-		"game-parachute/valentines/balloon_heart_red"
+		"game-parachute/valentines/chutes_cake_chocolate_brown",
+		"game-parachute/valentines/chutes_cake_chocolate_mix",
+		"game-parachute/valentines/chutes_cake_chocolate_white"
 	],
 	"droplets": [
+		"game-parachute/valentines/droplet1",
 		"game-parachute/valentines/droplet2",
+		"game-parachute/valentines/droplet3",
+		"game-parachute/valentines/droplet4",
 		"game-parachute/valentines/droplet5",
-		"game-parachute/valentines/droplet7",
-		"game-parachute/valentines/droplet7",
-		"game-parachute/valentines/droplet9",
-		"game-parachute/valentines/droplet9"
+		"game-parachute/valentines/droplet5"
 	],
 	"dropletSizes": [
-		0.5,
+		1,
 		0.5,
 		0.5,
 		0.5,
