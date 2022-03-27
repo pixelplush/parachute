@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parachute Drop (Easter) Game by PixelPlush</title>
+    <title>Parachute Drop (Easter (Free)) Game by PixelPlush</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
     <script>
@@ -30,12 +30,12 @@
     <div id="unicorn-display"></div>
     <script>
     const params = new URLSearchParams( location.search );
-    setupGame( "Parachute Drop (Easter)", {
+    setupGame( "Parachute Drop (Easter (Free))", {
 	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
 	"bg": "game-parachute/bcg",
-	"target": "game-parachute/easter_theme/target_easter1",
-	"target_front": "game-parachute/easter_theme/target_easter_front",
-	"target_offset": -1,
+	"target": "game-parachute/easter_theme/easter_new/easter1/target_easter_1",
+	"target_front": "game-parachute/easter_theme/easter_new/easter1/target_easter_front_credit",
+	"target_offset": -4,
 	"target_width": 384,
 	"target_y_offset": 50,
 	"target_boosh": [
@@ -51,6 +51,16 @@
 		"items/egg_blue",
 		"items/egg_red"
 	],
+	"special_hoppers": [
+		"chick",
+		"chocklet",
+		"rabbit1",
+		"rabbit2",
+		"marble"
+	],
+	"hopper_trigger": {
+		"group": "Egg"
+	},
 	"clouds": [
 		"game-parachute/cloud1",
 		"game-parachute/cloud2",
@@ -60,13 +70,11 @@
 	],
 	"parachute_offset": 0,
 	"parachutes": [
-		"game-parachute/easter_theme/chute_easter/chute_easter_5",
-		"game-parachute/easter_theme/chute_easter/chute_easter_6",
-		"game-parachute/easter_theme/chute_easter/chute_easter_8",
-		"game-parachute/easter_theme/chute_easter/chute_easter_9",
-		"game-parachute/easter_theme/chute_easter/chute_easter_10",
-		"game-parachute/easter_theme/chute_easter/chute_easter_11",
-		"game-parachute/easter_theme/chute_easter/chute_easter_12"
+		"game-parachute/easter_theme/easter_new/easter1/easter_chute_aqua",
+		"game-parachute/easter_theme/easter_new/easter1/easter_chute_banana",
+		"game-parachute/easter_theme/easter_new/easter1/easter_chute_cottoncandy",
+		"game-parachute/easter_theme/easter_new/easter1/easter_chute_lemon",
+		"game-parachute/easter_theme/easter_new/easter1/easter_chute_rose"
 	],
 	"droplets": [
 		"items/egg_brown",
