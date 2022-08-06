@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Pool Party Splash (Watermelon)) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script>
+    <script src="js/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Pool Party Splash (Watermelon))", {
+	"requires": "addon_parachute_poolmelon",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/bcg",
+	"target": "game-parachute/pool_theme/pool_target_colors/pool_target_melon_back_credit",
+	"target_overlay": [
+		"game-parachute/pool_theme/pool_water/pool_water_back1",
+		"game-parachute/pool_theme/pool_water/pool_water_back2",
+		"game-parachute/pool_theme/pool_water/pool_water_back3",
+		"game-parachute/pool_theme/pool_water/pool_water_back4",
+		"game-parachute/pool_theme/pool_water/pool_water_back5",
+		"game-parachute/pool_theme/pool_water/pool_water_back6",
+		"game-parachute/pool_theme/pool_water/pool_water_back7",
+		"game-parachute/pool_theme/pool_water/pool_water_back8",
+		"game-parachute/pool_theme/pool_water/pool_water_back9"
+	],
+	"target_front": "game-parachute/pool_theme/pool_target_colors/pool_target_melon_front",
+	"target_splishsplash": [
+		"game-parachute/pool_theme/pool_splash/pool_splash1",
+		"game-parachute/pool_theme/pool_splash/pool_splash2",
+		"game-parachute/pool_theme/pool_splash/pool_splash3",
+		"game-parachute/pool_theme/pool_splash/pool_splash4",
+		"game-parachute/pool_theme/pool_splash/pool_splash5",
+		"game-parachute/pool_theme/pool_splash/pool_splash6",
+		"game-parachute/pool_theme/pool_splash/pool_splash7",
+		"game-parachute/pool_theme/pool_splash/pool_splash8",
+		"game-parachute/pool_theme/pool_splash/pool_splash9",
+		"game-parachute/pool_theme/pool_splash/pool_splash10",
+		"game-parachute/pool_theme/pool_splash/pool_splash11",
+		"game-parachute/pool_theme/pool_splash/pool_splash12",
+		"game-parachute/pool_theme/pool_splash/pool_splash13"
+	],
+	"target_offset": 30,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 28,
+	"target_collide_land": 30,
+	"target_particles": [
+		"#74cbfb",
+		"#50b0e5"
+	],
+	"clouds": [
+		"game-parachute/cloud1",
+		"game-parachute/cloud2",
+		"game-parachute/cloud3",
+		"game-parachute/cloud4",
+		"game-parachute/cloud5"
+	],
+	"parachutes": [
+		"game-parachute/chute_black_blue",
+		"game-parachute/chute_black_purple",
+		"game-parachute/chute_black_red",
+		"game-parachute/chute_black_white",
+		"game-parachute/chute_black_yellow",
+		"game-parachute/chute_blue_green",
+		"game-parachute/chute_blue_purple",
+		"game-parachute/chute_blue_yellow",
+		"game-parachute/chute_blue",
+		"game-parachute/chute_green",
+		"game-parachute/chute_pink_blue",
+		"game-parachute/chute_pink_purple",
+		"game-parachute/chute_pink",
+		"game-parachute/chute_purple_blue",
+		"game-parachute/chute_purple",
+		"game-parachute/chute_red_purple",
+		"game-parachute/chute_retro",
+		"game-parachute/chute_white_blue",
+		"game-parachute/chute_white_green",
+		"game-parachute/chute_white_pink",
+		"game-parachute/chute_white_purple",
+		"game-parachute/chute_white_red",
+		"game-parachute/chute_white_turquoise",
+		"game-parachute/chute_white_yellow",
+		"game-parachute/chute_yellow"
+	],
+	"droplets": [
+		"game-parachute/droplets/greybit",
+		"game-parachute/droplets/purplebit",
+		"game-parachute/droplets/greenbit",
+		"game-parachute/droplets/bluebit",
+		"game-parachute/droplets/redbit",
+		"game-parachute/droplets/yellowbit"
+	],
+	"dropletSizes": [
+		1,
+		1,
+		1,
+		1,
+		1,
+		1
+	],
+	"target_sound": "sfx/droplet.mp3",
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"boy": "boy",
+		"girl": "girl"
+	},
+	"playable": [
+		"boy",
+		"girl"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>
