@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Valentines (White/Gold)) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/penguinplay.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="unicorn-display"></canvas>
+    <script src="js/parachute.min.js"></script>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Valentines (White/Gold))", {
+	"requires": "addon_parachute_valentines",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/valentines/bcg",
+	"target": "game-parachute/valentines/valentines_target_white_gold_credit",
+	"target_offset": -22,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 50,
+	"target_collide_land": 0,
+	"target_floaty": [
+		"game-parachute/valentines/heart_gold1",
+		"game-parachute/valentines/heart_gold2"
+	],
+	"clouds": [
+		"game-parachute/valentines/cloud1",
+		"game-parachute/valentines/cloud2",
+		"game-parachute/valentines/cloud3",
+		"game-parachute/valentines/cloud4",
+		"game-parachute/valentines/cloud5"
+	],
+	"parachute_offset": 0,
+	"parachutes": [
+		"game-parachute/valentines/balloon_heart_white",
+		"game-parachute/valentines/balloon_heart_gold"
+	],
+	"droplets": [
+		"game-parachute/valentines/droplet16",
+		"game-parachute/valentines/droplet13",
+		"game-parachute/valentines/droplet16",
+		"game-parachute/valentines/droplet13",
+		"game-parachute/valentines/droplet16",
+		"game-parachute/valentines/droplet13"
+	],
+	"dropletSizes": [
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"boybear": "bear",
+		"girlbear": "beargirl",
+		"evilbear": "evil_bear"
+	},
+	"playable": [
+		"boybear",
+		"girlbear",
+		"evilbear"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>

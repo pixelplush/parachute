@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Autumn) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/penguinplay.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="unicorn-display"></canvas>
+    <script src="js/parachute.min.js"></script>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Autumn)", {
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/autumn_theme/bcg",
+	"target": "game-parachute/autumn_theme/target_new/target_leaves",
+	"target_front": "game-parachute/autumn_theme/target_new/target_leaves_front",
+	"target_offset": -10,
+	"target_width": 384,
+	"target_y_offset": 56,
+	"target_boosh": [
+		"game-parachute/autumn_theme/land_anim1",
+		"game-parachute/autumn_theme/land_anim2",
+		"game-parachute/autumn_theme/land_anim3",
+		"game-parachute/autumn_theme/land_anim4",
+		"game-parachute/autumn_theme/land_anim5"
+	],
+	"clouds": [
+		"game-parachute/autumn_theme/cloud1",
+		"game-parachute/autumn_theme/cloud2",
+		"game-parachute/autumn_theme/cloud3",
+		"game-parachute/autumn_theme/cloud4",
+		"game-parachute/autumn_theme/cloud5"
+	],
+	"parachutes": [
+		"game-parachute/autumn_theme/chute_brown1",
+		"game-parachute/autumn_theme/chute_brown2",
+		"game-parachute/autumn_theme/chute_green1",
+		"game-parachute/autumn_theme/chute_green2",
+		"game-parachute/autumn_theme/chute_orange1",
+		"game-parachute/autumn_theme/chute_orange2",
+		"game-parachute/autumn_theme/chute_red1",
+		"game-parachute/autumn_theme/chute_red2",
+		"game-parachute/autumn_theme/chute_yellow1",
+		"game-parachute/autumn_theme/chute_yellow2"
+	],
+	"droplets": [
+		"items/acorn",
+		"items/pinecone",
+		"items/acorn",
+		"items/pinecone",
+		"items/acorn",
+		"items/pinecone"
+	],
+	"dropletSizes": [
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"target_sound": "sfx/dry_leaf.mp3",
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"amanita": "amanita",
+		"twiglet": "twiglet"
+	},
+	"playable": [
+		"amanita",
+		"twiglet"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>

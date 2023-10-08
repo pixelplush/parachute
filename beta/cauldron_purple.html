@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Purple Cauldron) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/penguinplay.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="unicorn-display"></canvas>
+    <script src="js/parachute.min.js"></script>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Purple Cauldron)", {
+	"requires": "addon_parachute_cauldron",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/bcg_night",
+	"target": "game-parachute/cauldron/cauldron_base_credit",
+	"target_overlay": [
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple1",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple2",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple3",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple4",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple5",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple6",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple7",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple8",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple9",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple10",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple11",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple12",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple13",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple14",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple15",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple16",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple17",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple18",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple19",
+		"game-parachute/cauldron/cauldron_purple/cauldron_purple20"
+	],
+	"target_effect": [
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple1",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple2",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple3",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple4",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple5",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple6",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple7",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple8",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple9",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple10",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple11",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple12",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple13",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple14",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple15",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple16",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple17",
+		"game-parachute/cauldron/cauldron_purple/land_effect_purple/land_effect_purple18"
+	],
+	"target_offset": -34,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 70,
+	"target_collide_land": 20,
+	"target_particles": [
+		"#64c424",
+		"#64c424"
+	],
+	"clouds": [
+		"game-parachute/cloud1_night",
+		"game-parachute/cloud2_night",
+		"game-parachute/cloud3_night",
+		"game-parachute/cloud4_night",
+		"game-parachute/cloud5_night"
+	],
+	"parachutes": [
+		"game-parachute/chute_black",
+		"game-parachute/chute_black_purple"
+	],
+	"droplets": [
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat"
+		],
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat",
+			"items/potion_green",
+			"items/potion_pink"
+		],
+		[
+			"items/candycorn",
+			"items/green_treat",
+			"items/pink_treat",
+			"items/potion_green",
+			"items/potion_pink",
+			"items/potion_green",
+			"items/potion_pink"
+		],
+		[
+			"items/potion_green",
+			"items/potion_pink",
+			"items/golden_pumpkin"
+		],
+		[
+			"items/potion_green",
+			"items/potion_pink",
+			"items/golden_pumpkin",
+			"items/golden_pumpkin"
+		],
+		"items/golden_pumpkin"
+	],
+	"dropletSizes": [
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"vampire": "vampire",
+		"witch": "witch",
+		"zombie": "zombie",
+		"monster": "monster",
+		"pumpkin_man": "pumpkin_man"
+	},
+	"playable": [
+		"vampire",
+		"witch",
+		"zombie",
+		"monster",
+		"pumpkin_man"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>

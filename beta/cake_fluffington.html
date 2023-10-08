@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Fluffington Cake) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/penguinplay.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="unicorn-display"></canvas>
+    <script src="js/parachute.min.js"></script>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Fluffington Cake)", {
+	"requires": "addon_parachute_cakeplush",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/cake_theme/cake_chocolate/bcg",
+	"target": [
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back1",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back1",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back1",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back2",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back2",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back2",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back3",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back3",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back3",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back4",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back4",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back4",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back5",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back5",
+		"game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_back5"
+	],
+	"target_front": "game-parachute/cake_theme/cake_instafluff/target_cake_instafluff_front",
+	"target_offset": -35,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 75,
+	"target_collide_land": 0,
+	"target_particles": [
+		"#45291e"
+	],
+	"clouds": [
+		"game-parachute/cake_theme/cake_chocolate/cloud1",
+		"game-parachute/cake_theme/cake_chocolate/cloud2",
+		"game-parachute/cake_theme/cake_chocolate/cloud3",
+		"game-parachute/cake_theme/cake_chocolate/cloud4",
+		"game-parachute/cake_theme/cake_chocolate/cloud5"
+	],
+	"parachute_offset": 0,
+	"parachutes": [
+		"game-parachute/cake_theme/cake_instafluff/chutes_cake_instafluff_brown",
+		"game-parachute/cake_theme/cake_instafluff/chutes_cake_instafluff_orange",
+		"game-parachute/cake_theme/cake_instafluff/chutes_cake_instafluff_yellow"
+	],
+	"droplets": [
+		"game-parachute/cake_theme/cake_instafluff/droplet1",
+		"game-parachute/cake_theme/cake_instafluff/droplet2",
+		"game-parachute/cake_theme/cake_instafluff/droplet3",
+		"game-parachute/cake_theme/cake_instafluff/droplet4",
+		"game-parachute/cake_theme/cake_instafluff/droplet5",
+		"game-parachute/cake_theme/cake_instafluff/droplet5"
+	],
+	"dropletSizes": [
+		1,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"boy": "boy",
+		"girl": "girl"
+	},
+	"playable": [
+		"boy",
+		"girl"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Rainbow) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/penguinplay.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="unicorn-display"></canvas>
+    <script src="js/parachute.min.js"></script>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Rainbow)", {
+	"requires": "addon_parachute_rainbow",
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/pride_theme/bcg",
+	"target": [
+		"game-parachute/pride_theme/target/target_pride1",
+		"game-parachute/pride_theme/target/target_pride2",
+		"game-parachute/pride_theme/target/target_pride3",
+		"game-parachute/pride_theme/target/target_pride4",
+		"game-parachute/pride_theme/target/target_pride5",
+		"game-parachute/pride_theme/target/target_pride6",
+		"game-parachute/pride_theme/target/target_pride7",
+		"game-parachute/pride_theme/target/target_pride8",
+		"game-parachute/pride_theme/target/target_pride9"
+	],
+	"target_front": "game-parachute/pride_theme/target/target_pride_front",
+	"target_animate_on_landed": true,
+	"target_offset": -45,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_boosh": [
+		"confetti_overlay/confetti/confetti1/confetti1_yellow",
+		"confetti_overlay/confetti/confetti1/confetti1_skyblue",
+		"confetti_overlay/confetti/confetti1/confetti1_red",
+		"confetti_overlay/confetti/confetti1/confetti1_purple",
+		"confetti_overlay/confetti/confetti1/confetti1_pink",
+		"confetti_overlay/confetti/confetti1/confetti1_orange",
+		"confetti_overlay/confetti/confetti1/confetti1_green",
+		"confetti_overlay/confetti/confetti1/confetti1_darkyellow",
+		"confetti_overlay/confetti/confetti1/confetti1_blue",
+		"confetti_overlay/confetti/confetti2/confetti2_yellow",
+		"confetti_overlay/confetti/confetti2/confetti2_skyblue",
+		"confetti_overlay/confetti/confetti2/confetti2_red",
+		"confetti_overlay/confetti/confetti2/confetti2_purple",
+		"confetti_overlay/confetti/confetti2/confetti2_pink",
+		"confetti_overlay/confetti/confetti2/confetti2_orange",
+		"confetti_overlay/confetti/confetti2/confetti2_green",
+		"confetti_overlay/confetti/confetti2/confetti2_darkyellow",
+		"confetti_overlay/confetti/confetti2/confetti2_blue",
+		"confetti_overlay/confetti/confetti3/confetti3_yellow",
+		"confetti_overlay/confetti/confetti3/confetti3_skyblue",
+		"confetti_overlay/confetti/confetti3/confetti3_red",
+		"confetti_overlay/confetti/confetti3/confetti3_purple",
+		"confetti_overlay/confetti/confetti3/confetti3_pink",
+		"confetti_overlay/confetti/confetti3/confetti3_orange",
+		"confetti_overlay/confetti/confetti3/confetti3_green",
+		"confetti_overlay/confetti/confetti3/confetti3_darkyellow",
+		"confetti_overlay/confetti/confetti3/confetti3_blue",
+		"confetti_overlay/confetti/confetti4/confetti4_yellow",
+		"confetti_overlay/confetti/confetti4/confetti4_skyblue",
+		"confetti_overlay/confetti/confetti4/confetti4_red",
+		"confetti_overlay/confetti/confetti4/confetti4_purple",
+		"confetti_overlay/confetti/confetti4/confetti4_pink",
+		"confetti_overlay/confetti/confetti4/confetti4_orange",
+		"confetti_overlay/confetti/confetti4/confetti4_green",
+		"confetti_overlay/confetti/confetti4/confetti4_darkyellow",
+		"confetti_overlay/confetti/confetti4/confetti4_blue",
+		"confetti_overlay/confetti/confetti5/confetti5_yellow",
+		"confetti_overlay/confetti/confetti5/confetti5_skyblue",
+		"confetti_overlay/confetti/confetti5/confetti5_red",
+		"confetti_overlay/confetti/confetti5/confetti5_purple",
+		"confetti_overlay/confetti/confetti5/confetti5_pink",
+		"confetti_overlay/confetti/confetti5/confetti5_orange",
+		"confetti_overlay/confetti/confetti5/confetti5_green",
+		"confetti_overlay/confetti/confetti5/confetti5_darkyellow",
+		"confetti_overlay/confetti/confetti5/confetti5_blue",
+		"confetti_overlay/confetti/confetti6/confetti6_yellow",
+		"confetti_overlay/confetti/confetti6/confetti6_skyblue",
+		"confetti_overlay/confetti/confetti6/confetti6_red",
+		"confetti_overlay/confetti/confetti6/confetti6_purple",
+		"confetti_overlay/confetti/confetti6/confetti6_pink",
+		"confetti_overlay/confetti/confetti6/confetti6_orange",
+		"confetti_overlay/confetti/confetti6/confetti6_green",
+		"confetti_overlay/confetti/confetti6/confetti6_darkyellow",
+		"confetti_overlay/confetti/confetti6/confetti6_blue"
+	],
+	"clouds": [
+		"game-parachute/pride_theme/cloud1",
+		"game-parachute/pride_theme/cloud2",
+		"game-parachute/pride_theme/cloud3",
+		"game-parachute/pride_theme/cloud4",
+		"game-parachute/pride_theme/cloud5"
+	],
+	"parachute_offset": 0,
+	"pridechutes": {
+		"asexual": "game-parachute/pride_theme/chute_plane_asexual",
+		"bisexual": "game-parachute/pride_theme/chute_plane_bisexual",
+		"gay": "game-parachute/pride_theme/chute_plane_gay",
+		"genderfluid": "game-parachute/pride_theme/chute_plane_genderfluid",
+		"intersex": "game-parachute/pride_theme/chute_plane_intersex",
+		"lesbian": "game-parachute/pride_theme/chute_plane_lesbian",
+		"nonbinary": "game-parachute/pride_theme/chute_plane_nonbinary",
+		"pansexual": "game-parachute/pride_theme/chute_plane_pansexual",
+		"trans": "game-parachute/pride_theme/chute_plane_transgender"
+	},
+	"parachutes": [
+		"game-parachute/pride_theme/chute_plane_plain",
+		"game-parachute/pride_theme/chute_rainbow"
+	],
+	"petparachutes": [
+		"game-parachute/pride_theme/chute_plane_plain",
+		"game-parachute/pride_theme/chute_rainbow"
+	],
+	"droplets": [
+		"items/droplets/greydroplet2",
+		"items/droplets/purpledroplet2",
+		"items/droplets/greendroplet2",
+		"items/droplets/bluedroplet2",
+		"items/droplets/reddroplet2",
+		"items/droplets/yellowdroplet2"
+	],
+	"dropletSizes": [
+		1.5,
+		1,
+		1,
+		1,
+		1,
+		1
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"koral": "fairy_girl",
+		"kiro": "fairy_boy"
+	},
+	"playable": [
+		"koral",
+		"kiro"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>
