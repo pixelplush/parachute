@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute Drop (Camp Chaos Chutes) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://www.pixelplush.dev/assets/pinkfluffyunicorn.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/pixelplush/assets/pinkfluffyunicorn.min.js"></script> -->
+    <script src="js/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Camp Chaos Chutes)", {
+	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
+	"bg": "game-parachute/camp_chaos/bcg_water",
+	"target": "game-parachute/camp_chaos/camp_target_credit",
+	"target_offset": -34,
+	"target_width": 384,
+	"target_y_offset": 50,
+	"target_walls": 70,
+	"target_collide_land": 30,
+	"clouds": [
+		"game-parachute/camp_chaos/cloud1",
+		"game-parachute/camp_chaos/cloud2",
+		"game-parachute/camp_chaos/cloud3",
+		"game-parachute/camp_chaos/cloud4",
+		"game-parachute/camp_chaos/cloud5"
+	],
+	"parachute_offset": 0,
+	"parachutes": [
+		"game-parachute/camp_chaos/chute_artin_blue_green",
+		"game-parachute/camp_chaos/chute_artin_blue_orange",
+		"game-parachute/camp_chaos/chute_artin_blue_pink",
+		"game-parachute/camp_chaos/chute_artin_blue_yellow",
+		"game-parachute/camp_chaos/chute_artin_green_pink",
+		"game-parachute/camp_chaos/chute_artin_purple_green",
+		"game-parachute/camp_chaos/chute_artin_purple_orange",
+		"game-parachute/camp_chaos/chute_artin_yellow_pink"
+	],
+	"droplets": [
+		"game-parachute/camp_chaos/droplet1",
+		"game-parachute/camp_chaos/droplet2",
+		"game-parachute/camp_chaos/droplet3",
+		"game-parachute/camp_chaos/droplet4",
+		"game-parachute/camp_chaos/droplet5",
+		"game-parachute/camp_chaos/droplet6"
+	],
+	"dropletSizes": [
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5,
+		0.5
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "insta",
+		"jelly": "jelly",
+		"blurple": "blurple",
+		"gwape": "gwape"
+	},
+	"playable": [
+		"jelly",
+		"blurple",
+		"gwape"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        targetPos: params.get( "targetPos" ),
+        queueOnly: params.get( "queueOnly" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+    });
+    </script>
+</body>
+</html>
