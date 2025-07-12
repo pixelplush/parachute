@@ -35,7 +35,20 @@
 	"requires": "addon_parachute_campchaos",
 	"path": "https://cdn.jsdelivr.net/gh/pixelplush",
 	"bg": "game-parachute/camp_chaos/bcg_water",
-	"target": "game-parachute/camp_chaos/camp_target_credit",
+	"target": [
+		"game-parachute/camp_chaos/camp_target_anim1",
+		"game-parachute/camp_chaos/camp_target_anim2",
+		"game-parachute/camp_chaos/camp_target_anim3",
+		"game-parachute/camp_chaos/camp_target_anim4",
+		"game-parachute/camp_chaos/camp_target_anim5",
+		"game-parachute/camp_chaos/camp_target_anim6",
+		"game-parachute/camp_chaos/camp_target_anim7",
+		"game-parachute/camp_chaos/camp_target_anim8",
+		"game-parachute/camp_chaos/camp_target_anim9",
+		"game-parachute/camp_chaos/camp_target_anim10",
+		"game-parachute/camp_chaos/camp_target_anim11",
+		"game-parachute/camp_chaos/camp_target_anim12"
+	],
 	"target_offset": -34,
 	"target_width": 400,
 	"target_y_offset": 50,
@@ -89,7 +102,8 @@
 		"game-parachute/camp_chaos/water_back/water_back10",
 		"game-parachute/camp_chaos/water_back/water_back11",
 		"game-parachute/camp_chaos/water_back/water_back12",
-		"game-parachute/camp_chaos/water_back/water_back13"
+		"game-parachute/camp_chaos/water_back/water_back13",
+		"game-parachute/camp_chaos/water_back/water_back14"
 	],
 	"animated_front_layer": [
 		"game-parachute/camp_chaos/water_front/water_front1",
@@ -104,7 +118,8 @@
 		"game-parachute/camp_chaos/water_front/water_front10",
 		"game-parachute/camp_chaos/water_front/water_front11",
 		"game-parachute/camp_chaos/water_front/water_front12",
-		"game-parachute/camp_chaos/water_front/water_front13"
+		"game-parachute/camp_chaos/water_front/water_front13",
+		"game-parachute/camp_chaos/water_front/water_front14"
 	],
 	"queue_sound": "sfx/group_queue.mp3",
 	"drop_sound": "sfx/woodrop.mp3",
@@ -151,6 +166,8 @@
         readyTime: params.get( "readyTime" ),
         raidMode: params.get( "raidMode" ),
         outfit: params.get( "outfit" ),
+        targetMoveSpeed: params.get( "targetMoveSpeed" ) || 0,
+        missFallOff: params.get( "missFallOff" ),
     });
     </script>
 </body>
