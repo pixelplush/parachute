@@ -1,11 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
+    <title>Parachute Drop (Retro) Game by PixelPlush</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6EJRXTPH3Z');
+    </script>
+    <link rel="stylesheet" href="https://cdn.pixelplush.dev/parachute/css/fonts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2/dist/tinycolor-min.js"></script>
+    <script src="https://cdn.pixelplush.dev/assets/pinkfluffyunicorn.min.js"></script>
+    <script src="https://cdn.pixelplush.dev/parachute/js/parachute.min.js"></script>
+    <style>
+    * {
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    body {
+        overflow: hidden;
+    }
+    </style>
 </head>
 <body>
-<p>This game has moved. <a href="https://cdn.pixelplush.dev/parachute/retro.html">Click here</a> if not redirected.</p>
-<script>window.location.replace("https://cdn.pixelplush.dev/parachute/retro.html" + window.location.search + window.location.hash);</script>
+    <div id="unicorn-display"></div>
+    <script>
+    const params = new URLSearchParams( location.search );
+    setupGame( "Parachute Drop (Retro)", {
+	"path": "https://cdn.pixelplush.dev",
+	"bg": "game-parachute/bcg_retro",
+	"target": "game-parachute/target_retro1",
+	"clouds": [
+		"game-parachute/cloud1_retro",
+		"game-parachute/cloud2_retro",
+		"game-parachute/cloud3_retro",
+		"game-parachute/cloud4_retro",
+		"game-parachute/cloud5_retro"
+	],
+	"parachutes": [
+		"game-parachute/chute_retro"
+	],
+	"droplets": [
+		"game-parachute/droplets/greybit",
+		"game-parachute/droplets/purplebit",
+		"game-parachute/droplets/greenbit",
+		"game-parachute/droplets/bluebit",
+		"game-parachute/droplets/redbit",
+		"game-parachute/droplets/yellowbit"
+	],
+	"dropletSizes": [
+		1,
+		1,
+		1,
+		1,
+		1,
+		1
+	],
+	"queue_sound": "sfx/group_queue.mp3",
+	"drop_sound": "sfx/woodrop.mp3",
+	"parachute_sound": "sfx/parachuteflap.mp3",
+	"characters": {
+		"maaya": "maaya",
+		"instafluff": "instafluff",
+		"boy": "boy",
+		"girl": "girl"
+	},
+	"playable": [
+		"boy",
+		"girl"
+	]
+}, {
+        channel: params.get( "channel" ),
+        oauth: params.get( "oauth" ),
+        refreshToken: params.get( "refreshToken" ),
+        messageFormat: params.get( "messageFormat" ),
+        overlay: params.get( "overlay" ),
+        clouds: params.get( "clouds" ),
+        hideTilDrop: params.get( "hideTilDrop" ),
+        volume: params.get( "volume" ),
+        droplets: params.get( "droplets" ),
+        command: params.get( "command" ),
+        commandOn: params.get( "commandOn" ),
+        cooldown: params.get( "cooldown" ),
+        variations: params.get( "variations" ),
+        didRandom: params.get( "didRandom" ),
+        targetPos: params.get( "targetPos" ),
+        queueOnly: params.get( "queueOnly" ),
+        cpDrop: params.get( "cpDrop" ),
+        cpDropCost: params.get( "cpDropCost" ),
+        cpDroplets: params.get( "cpDroplets" ),
+        cpDropletsCost: params.get( "cpDropletsCost" ),
+        cpDropletsCD: params.get( "cpDropletsCD" ),
+        cpQueue: params.get( "cpQueue" ),
+        cpQueueCost: params.get( "cpQueueCost" ),
+        cpQueueCD: params.get( "cpQueueCD" ),
+        notifVolume: params.get( "notifVolume" ),
+        spawnZombies: params.get( "spawnZombies" ),
+        readyTime: params.get( "readyTime" ),
+        raidMode: params.get( "raidMode" ),
+        outfit: params.get( "outfit" ),
+        targetMoveSpeed: params.get( "targetMoveSpeed" ) || 0,
+        debug: params.get( "debug" ) === "1" || params.get( "debug" ) === "true",
+    });
+    </script>
 </body>
 </html>
