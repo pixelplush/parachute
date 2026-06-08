@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Source maps — never commit these. They expose original source code if deployed.
+*.map
