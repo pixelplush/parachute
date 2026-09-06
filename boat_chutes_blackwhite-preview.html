@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parachute Drop (Boat Chutes Preview) Game by PixelPlush</title>
+    <title>Parachute Drop (Boat Chutes - Black Boat & Monochrome Flags Preview) Game by PixelPlush</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6EJRXTPH3Z"></script>
     <script>
@@ -30,13 +30,13 @@
     <div id="unicorn-display"></div>
     <script>
     const params = new URLSearchParams( location.search );
-    setupGame( "Parachute Drop (Boat Chutes Preview)", {
+    setupGame( "Parachute Drop (Boat Chutes - Black Boat & Monochrome Flags Preview)", {
 	"path": "THEME_CDN",
 	"bg": "game-parachute/boat/bcg_nowater",
 	"target": "game-parachute/boat/boats/boat_brown",
 	"target_versions": {
 		"flag_black": {
-			"target": "game-parachute/boat/boats/boat_brown",
+			"target": "game-parachute/boat/boats/boat_black",
 			"target_overlay": [
 				"game-parachute/boat/flags/flag_black/flag_black1",
 				"game-parachute/boat/flags/flag_black/flag_black2",
@@ -48,86 +48,8 @@
 				"game-parachute/boat/flags/flag_black/flag_black8"
 			]
 		},
-		"flag_blue": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_blue/flag_blue1",
-				"game-parachute/boat/flags/flag_blue/flag_blue2",
-				"game-parachute/boat/flags/flag_blue/flag_blue3",
-				"game-parachute/boat/flags/flag_blue/flag_blue4",
-				"game-parachute/boat/flags/flag_blue/flag_blue5",
-				"game-parachute/boat/flags/flag_blue/flag_blue6",
-				"game-parachute/boat/flags/flag_blue/flag_blue7",
-				"game-parachute/boat/flags/flag_blue/flag_blue8"
-			]
-		},
-		"flag_green": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_green/flag_green1",
-				"game-parachute/boat/flags/flag_green/flag_green2",
-				"game-parachute/boat/flags/flag_green/flag_green3",
-				"game-parachute/boat/flags/flag_green/flag_green4",
-				"game-parachute/boat/flags/flag_green/flag_green5",
-				"game-parachute/boat/flags/flag_green/flag_green6",
-				"game-parachute/boat/flags/flag_green/flag_green7",
-				"game-parachute/boat/flags/flag_green/flag_green8"
-			]
-		},
-		"flag_orange": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_orange/flag_orange1",
-				"game-parachute/boat/flags/flag_orange/flag_orange2",
-				"game-parachute/boat/flags/flag_orange/flag_orange3",
-				"game-parachute/boat/flags/flag_orange/flag_orange4",
-				"game-parachute/boat/flags/flag_orange/flag_orange5",
-				"game-parachute/boat/flags/flag_orange/flag_orange6",
-				"game-parachute/boat/flags/flag_orange/flag_orange7",
-				"game-parachute/boat/flags/flag_orange/flag_orange8"
-			]
-		},
-		"flag_pink": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_pink/flag_pink1",
-				"game-parachute/boat/flags/flag_pink/flag_pink2",
-				"game-parachute/boat/flags/flag_pink/flag_pink3",
-				"game-parachute/boat/flags/flag_pink/flag_pink4",
-				"game-parachute/boat/flags/flag_pink/flag_pink5",
-				"game-parachute/boat/flags/flag_pink/flag_pink6",
-				"game-parachute/boat/flags/flag_pink/flag_pink7",
-				"game-parachute/boat/flags/flag_pink/flag_pink8"
-			]
-		},
-		"flag_purple": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_purple/flag_purple1",
-				"game-parachute/boat/flags/flag_purple/flag_purple2",
-				"game-parachute/boat/flags/flag_purple/flag_purple3",
-				"game-parachute/boat/flags/flag_purple/flag_purple4",
-				"game-parachute/boat/flags/flag_purple/flag_purple5",
-				"game-parachute/boat/flags/flag_purple/flag_purple6",
-				"game-parachute/boat/flags/flag_purple/flag_purple7",
-				"game-parachute/boat/flags/flag_purple/flag_purple8"
-			]
-		},
-		"flag_red": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_red/flag_red1",
-				"game-parachute/boat/flags/flag_red/flag_red2",
-				"game-parachute/boat/flags/flag_red/flag_red3",
-				"game-parachute/boat/flags/flag_red/flag_red4",
-				"game-parachute/boat/flags/flag_red/flag_red5",
-				"game-parachute/boat/flags/flag_red/flag_red6",
-				"game-parachute/boat/flags/flag_red/flag_red7",
-				"game-parachute/boat/flags/flag_red/flag_red8"
-			]
-		},
 		"flag_white": {
-			"target": "game-parachute/boat/boats/boat_brown",
+			"target": "game-parachute/boat/boats/boat_black",
 			"target_overlay": [
 				"game-parachute/boat/flags/flag_white/flag_white1",
 				"game-parachute/boat/flags/flag_white/flag_white2",
@@ -137,19 +59,6 @@
 				"game-parachute/boat/flags/flag_white/flag_white6",
 				"game-parachute/boat/flags/flag_white/flag_white7",
 				"game-parachute/boat/flags/flag_white/flag_white8"
-			]
-		},
-		"flag_yellow": {
-			"target": "game-parachute/boat/boats/boat_brown",
-			"target_overlay": [
-				"game-parachute/boat/flags/flag_yellow/flag_yellow1",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow2",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow3",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow4",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow5",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow6",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow7",
-				"game-parachute/boat/flags/flag_yellow/flag_yellow8"
 			]
 		}
 	},
